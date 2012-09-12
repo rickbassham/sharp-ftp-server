@@ -53,7 +53,8 @@ namespace SharpServer.Ftp
 
         protected override void OnStop()
         {
-            _timer.Stop();
+            if (_timer != null)
+                _timer.Stop();
         }
 
         protected override void Dispose(bool disposing)

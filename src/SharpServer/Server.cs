@@ -50,7 +50,18 @@ namespace SharpServer
             foreach (var localEndPoint in _localEndPoints)
             {
                 TcpListener listener = new TcpListener(localEndPoint);
-                listener.Start();
+
+                try
+                {
+                    listener.Start();
+                }
+                catch (SocketException ex)
+                {
+                    Dispose();
+
+                    throw new Exception("The current local end point is currently in use. Please specify another IP or port to listen on.");
+                }
+
                 listener.BeginAcceptTcpClient(HandleAcceptTcpClient, listener);
 
                 _listeners.Add(listener);
