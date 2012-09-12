@@ -1,0 +1,3 @@
+[submodule "src/two-factor"]
+	path = src/two-factor
+	url = https://github.com/rickbassham/two-factor.git
