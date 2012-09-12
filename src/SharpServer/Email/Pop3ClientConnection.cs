@@ -10,8 +10,6 @@ namespace SharpServer.Email
     {
         private class MailMessage
         {
-            private string _origPath = null;
-
             public bool Deleted { get; set; }
             public FileInfo File { get; set; }
         }

@@ -556,10 +556,14 @@ namespace SharpServer.Ftp
             {
                 if (!string.IsNullOrEmpty(user.TwoFactorSecret))
                 {
+                    _password = password;
+
                     return GetResponse(FtpResponses.NEED_TWO_FACTOR_CODE);
                 }
                 else
                 {
+                    _currentUser = user;
+
                     _root = _currentUser.HomeDir;
                     _currentDirectory = _root;
 

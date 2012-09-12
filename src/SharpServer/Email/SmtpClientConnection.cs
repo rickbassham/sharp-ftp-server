@@ -12,7 +12,6 @@ namespace SharpServer.Email
             public string RawData { get; set; }
         }
 
-        private string _connectionDomain;
         private string _mailFrom;
         private List<string> _recipientTo;
         private MailData _message;
