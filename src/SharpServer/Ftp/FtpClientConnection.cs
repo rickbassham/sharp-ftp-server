@@ -1030,6 +1030,9 @@ namespace SharpServer.Ftp
                 current = "/";
             }
 
+            //Encapsulate working directory with ". Needed in order to support folders with spaces in them (in Filezilla and other FTP Clients).
+            current = "\"" + current + "\"";
+
             return GetResponse(FtpResponses.CURRENT_DIRECTORY.SetData(current));
         }
 
